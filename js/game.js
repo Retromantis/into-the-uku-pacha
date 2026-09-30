@@ -117,8 +117,8 @@ game_scene.create = function () {
         //         { x: 150, y: 272 },
         //         { x: 180, y: 272 }
         //     ],
-        floors: [87, 143, 199, 255, 311],
-        player: { x: 24, y: 200 }
+        floors: [88, 136, 184, 232, 280],
+        player: { x: 24, y: 280 }
     };
     this.MAX_FLOOR = 4;
     this.FLOOR_HGT = 56;
@@ -393,7 +393,7 @@ game_scene.turn_right = function () {
 game_scene.go_up = function () {
     if (this.curr_floor > 0) {
         this.curr_floor--;
-        this.player.move(0, -this.FLOOR_HGT);
+        this.player.position(this.player.x, this.level.floors[this.curr_floor] - this.player.height);
     }
 }
 
@@ -401,7 +401,7 @@ game_scene.go_up = function () {
 game_scene.go_down = function () {
     if (this.curr_floor < this.MAX_FLOOR) {
         this.curr_floor++;
-        this.player.move(0, this.FLOOR_HGT);
+        this.player.position(this.player.x, this.level.floors[this.curr_floor] - this.player.height);
     }
 }
 
